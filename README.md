@@ -29,7 +29,7 @@ Then, it performs the following steps:
     - `早` has **2 holes**
     - `好` has **1 hole**
     - `上` has **0 holes**  
-    The program tallies the count for each character accordingly.
+The program tallies the count for each character accordingly.
 
 ## Example
 The `source files` project folder contains two PNG sample images (`Sample1.png` and `Sample2.png` respectively) that you can test the program with.
