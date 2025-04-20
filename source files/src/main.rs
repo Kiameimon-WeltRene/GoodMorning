@@ -97,12 +97,10 @@ fn main() {
     let (mut no_holes, mut one_hole, mut two_holes) = (0, 0, 0);
     for i in 0..rows {
         for j in 0..cols {
-            print!("{}", grid[i][j] as u32);
             if grid[i][j] && !visited[i][j] {
                 count_shapes(&grid, &mut visited, &mut visited_hole, i as isize, j as isize, &mut no_holes, &mut one_hole, &mut two_holes);
             }
         }
-        print!("\n");
     }
 
     println!("number of 早: {}, number of 上: {}, number of 好: {}", two_holes, no_holes - one_hole, one_hole);
