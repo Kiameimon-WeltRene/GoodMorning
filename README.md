@@ -43,7 +43,7 @@ The `source files` project folder contains two PNG sample images (`goodmorningsa
 ```bash
 cargo build --release
 ```
-You'll be prompted to input the filename of your image (e.g., goodmornignsample.png), and it will output the counts of each character.
+You'll be prompted to input the filename of your image (e.g., `goodmornignsample.png`), and it will output the counts of each character.
 
 
 ## Dependencies
@@ -61,7 +61,7 @@ One potential improvement I’ve considered is refining the algorithm to better 
 In many handwritten cases, this horizontal stroke might only touch one side— or not connect at all. This causes the algorithm to misinterpret the structure of the hole, leading to incorrect classification.
 However, I noticed that such incomplete strokes often create a distinctive geometric feature: a sharp "puncture" or indentation in the shape of the hole. This can be interpreted as a deviation from convexity.
 
-![Illustration of convexity and puncture](illustrations/imagedemo.png)
+![Illustration of convexity and puncture](GoodMorning/illustrations/imagedemo.png)
 
 By contrast, the hole in the 女 component of the character 好 tends to remain relatively convex—even when written awkwardly. This makes the structure more stable for detection under various handwriting styles.
 
@@ -81,8 +81,8 @@ This heuristic allows us to differentiate between a true split (as in 早) and a
 
 Examples:
 
-![Incomplete stroke creates a deep puncture](illustrations/imagedemo1.png)  
-![Naturally convex hole remains undisturbed](illustrations/imagedemo2.png)
+![Incomplete stroke creates a deep puncture](GoodMorning/illustrations/imagedemo1.png)  
+![Naturally convex hole remains undisturbed](GoodMorning/illustrations/imagedemo2.png)
 
 Of course, this is assuming the characters are "fairly well written", but after my many failed attempts at finding edge cases to this approach (including varying brush thickness, ungodly rotations, distortions that would require unthinkable handwriting to achieve), I am fairly confident in its correctness.
 
