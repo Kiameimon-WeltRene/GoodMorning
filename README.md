@@ -43,7 +43,7 @@ The `source files` project folder contains two PNG sample images (`goodmorningsa
 ```bash
 cargo build --release
 ```
-You'll be prompted to input the filename of your image (e.g., `goodmornignsample.png`), and it will output the counts of each character.
+You'll be prompted to input the filename of your image (e.g., `goodmorningsample.png`), and it will output the counts of each character.
 
 
 ## Dependencies
