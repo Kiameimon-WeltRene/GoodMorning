@@ -28,7 +28,8 @@ Then, it performs the following steps:
     Based on the number of holes:
     - `早` has **2 holes**
     - `好` has **1 hole**
-    - `上` has **0 holes**  
+    - `上` has **0 holes**
+  
 The program tallies the count for each character accordingly.
 
 ## Example
