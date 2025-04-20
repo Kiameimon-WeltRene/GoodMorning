@@ -2,7 +2,7 @@ use image::{Luma, ImageReader};
 use std::io;
 
 fn image_to_binary_grid(image_path: &str) -> Vec<Vec<bool>> {
-    let threshold: u8 = 128;
+    let threshold: u8 = 250;
     let img = ImageReader::open(image_path)
         .expect("Failed to open image")
         .decode()
@@ -22,8 +22,8 @@ fn image_to_binary_grid(image_path: &str) -> Vec<Vec<bool>> {
     binary_grid
 }
 
-const DX: [isize; 4] = [0, 0, 1, -1];
-const DY: [isize; 4] = [1, -1, 0, 0];
+const DX: [isize; 8] = [0, 0, 1, -1, 1, -1, 1, -1];
+const DY: [isize; 8] = [1, -1, 0, 0, 1, -1, -1, 1];
 
 fn flood_fill_hole(grid: &Vec<Vec<bool>>, visited_hole: &mut Vec<Vec<bool>>, i: isize, j: isize) {
     let (rows, cols) = (grid.len() as isize, grid[0].len() as isize);
@@ -36,7 +36,7 @@ fn flood_fill_hole(grid: &Vec<Vec<bool>>, visited_hole: &mut Vec<Vec<bool>>, i: 
         
         visited_hole[x as usize][y as usize] = true;
 
-        for k in 0..4 {
+        for k in 0..8 {
             stack.push((x + DX[k], y + DY[k]));
         }
     }
@@ -61,7 +61,7 @@ fn flood_fill_shape(grid: &Vec<Vec<bool>>, visited: &mut Vec<Vec<bool>>, visited
 
         visited[x as usize][y as usize] = true;
 
-        for k in 0..4 {
+        for k in 0..8 {
             stack.push((x + DX[k], y + DY[k]));
         }
     }
@@ -82,7 +82,7 @@ fn count_shapes(grid: &Vec<Vec<bool>>, visited: &mut Vec<Vec<bool>>, visited_hol
 fn main() {
     
     let mut input = String::new();
-    println!("Key in the name of the image file (make sure it is in the \"source files\" folder):");
+    println!("Key in the name of the image file (make sure it is in the GoodMorning folder):");
     io::stdin().read_line(&mut input).expect("Failed to read line");
     let input = input.trim();
     let grid = image_to_binary_grid(&input);
@@ -97,10 +97,12 @@ fn main() {
     let (mut no_holes, mut one_hole, mut two_holes) = (0, 0, 0);
     for i in 0..rows {
         for j in 0..cols {
+            print!("{}", grid[i][j] as u32);
             if grid[i][j] && !visited[i][j] {
                 count_shapes(&grid, &mut visited, &mut visited_hole, i as isize, j as isize, &mut no_holes, &mut one_hole, &mut two_holes);
             }
         }
+        print!("\n");
     }
 
     println!("number of 早: {}, number of 上: {}, number of 好: {}", two_holes, no_holes - one_hole, one_hole);
