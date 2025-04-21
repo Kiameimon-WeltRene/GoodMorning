@@ -62,7 +62,7 @@ One potential improvement I’ve considered is refining the algorithm to better 
 In many handwritten cases, this horizontal stroke might only touch one side— or not connect at all. This causes the algorithm to misinterpret the structure of the hole, leading to incorrect classification.
 However, I noticed that such incomplete strokes often create a distinctive geometric feature: a sharp "puncture" or indentation in the shape of the hole. This can be interpreted as a deviation from convexity.
 
-![Illustration of convexity and puncture](Illustrations/imagedemo.png)
+![Illustration of convexity and puncture](Illustrations/ImageDemo0.png)
 
 By contrast, the hole in the 女 component of the character 好 tends to remain relatively convex—even when written awkwardly. This makes the structure more stable for detection under various handwriting styles.
 
@@ -82,8 +82,8 @@ This heuristic allows us to differentiate between a true split (as in 早) and a
 
 Examples:
 
-![Incomplete stroke creates a deep puncture](Illustrations/imagedemo1.png)  
-![Naturally convex hole remains undisturbed](Illustrations/imagedemo2.png)
+![Incomplete stroke creates a deep puncture](Illustrations/ImageDemo1.png)  
+![Naturally convex hole remains undisturbed](Illustrations/ImageDemo2.png)
 
 Of course, this is assuming the characters are "fairly well written", but after my many failed attempts at finding edge cases to this approach (including varying brush thickness, ungodly rotations, distortions that would require unthinkable handwriting to achieve), I am fairly confident in its correctness.
 
