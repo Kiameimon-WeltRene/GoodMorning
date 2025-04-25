@@ -34,7 +34,9 @@ The program tallies the count for each character accordingly.
 
 ## Example
 The `source files` project folder contains two PNG sample images (`Sample1.png` and `Sample2.png` respectively) that you can test the program with.
+
 ![Sample1.png](Content/Sample1.png)
+
 In the above picture, there is a total of 9 早s, 19 上s and 7 好s. And as expected, the program prints:
 ```
 number of 早: 9, number of 上: 19, number of 好: 7
