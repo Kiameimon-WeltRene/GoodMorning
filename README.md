@@ -34,16 +34,23 @@ The program tallies the count for each character accordingly.
 
 ## Example
 The `source files` project folder contains two PNG sample images (`Sample1.png` and `Sample2.png` respectively) that you can test the program with.
+[Sample1.png](Content/Sample1.png)
+In the above picture, there is a total of 9 早s, 19 上s and 7 好s. And as expected, the program prints:
+```
+number of 早: 9, number of 上: 19, number of 好: 7
+```
 
 ## How to Use
 
-1. Place the image inside the `source files` project folder.
+1. Compile the program:
+    ```bash
+    cargo build --release
+    ```
+2. Place the image inside the `release` folder (under `Content/target/release`).
 2. Run the program.
-3. Enter the filename when prompted.
+3. Enter the file name when prompted.
 
-```bash
-cargo build --release
-```
+
 You'll be prompted to input the filename of your image (e.g., `Sample1.png`), and it will output the counts of each character.
 
 

@@ -143,7 +143,7 @@ fn count_shapes(
 fn main() {
     // Get input image path from user
     let mut input = String::new();
-    println!("Key in the name of the image file (make sure it is in the GoodMorning folder):");
+    println!("Key in the name of the image file (make sure it is in the release folder):");
     io::stdin().read_line(&mut input).expect("Failed to read line");
     let input = input.trim();
     
